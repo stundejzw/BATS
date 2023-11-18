@@ -17,7 +17,8 @@ import numpy as np
 import re
 import logging
 
-MODEL_MODEL_LOAD_PATH = '/Users/haoye.tian/Documents/University/model/java14_model/saved_model_iter8.release'
+# MODEL_MODEL_LOAD_PATH = '/Users/haoye.tian/Documents/University/model/java14_model/saved_model_iter8.release'
+MODEL_MODEL_LOAD_PATH = os.environ.get('BATS_MODEL_MODEL_LOAD_PATH')
 MODEL_CC2Vec = '../representation/CC2Vec/'
 
 class Word2vector:

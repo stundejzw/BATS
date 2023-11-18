@@ -1,3 +1,6 @@
+import os
+
+
 class Config:
     def __init__(self):
         # the orginal data of test case name, test function, associated patch including 'single test case' and 'full' versions.
@@ -6,7 +9,8 @@ class Config:
         self.path_patch_root = '../data/defects4j_patch_sliced/'
 
         #  generated patches of APR tools
-        self.path_generated_patch = '/Users/haoye.tian/Documents/University/data/BATS_DataSet/PatchCollectingV1_sliced/'
+        # self.path_generated_patch = '/Users/haoye.tian/Documents/University/data/BATS_DataSet/PatchCollectingV1_sliced/'
+        self.path_generated_patch = os.environ.get('BATS_PATH_GENERATED_PATCH')
         # for Naturalness
         # self.path_generated_patch = '/Users/haoye.tian/Documents/ISSTA2022withTextUnique/'
 

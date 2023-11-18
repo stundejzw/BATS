@@ -37,7 +37,7 @@ class Experiment:
             self.original_dataset = pickle.load(f)
 
         # organize data and vector
-        if os.path.exists(organized_dataset):
+        if os.path.exists(self.organized_dataset):
             datasets = pickle.load(open(self.organized_dataset, 'rb'))
             self.test_name = datasets[0]
             self.patch_name = datasets[1]
@@ -45,9 +45,9 @@ class Experiment:
             self.patch_vector = datasets[3]
             self.exception_type = datasets[4]
         else:
-            # learn the representation of test case and patch. always use code2vec for test case. 
+            # learn the representation of test case and patch. always use code2vec for test case.
             all_test_name, all_patch_name, all_test_vector, all_patch_vector, all_exception_type = self.test_patch_2vector(test_w2v='code2vec', patch_w2v=self.patch_w2v)
-            
+
             # save data with different types to pickle.
             datasets = [all_test_name, all_patch_name, all_test_vector, all_patch_vector, all_exception_type]
             pickle.dump(datasets, open(self.organized_dataset, 'wb'))
